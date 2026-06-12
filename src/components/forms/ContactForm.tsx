@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -35,7 +36,19 @@ export function ContactForm() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      organization: "",
+      subject: "",
+      message: "",
+    },
   });
+
+  useEffect(() => {
+    register("subject");
+  }, [register]);
 
   const onSubmit = async (data: ContactFormData) => {
     await new Promise((r) => setTimeout(r, 1000));

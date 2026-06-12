@@ -36,7 +36,7 @@ export function ContactCTA({
             href="/request-quotation"
             className={cn(
               buttonVariants({ size: "lg", variant: "outline" }),
-              "border-white text-brand-primary hover:bg-white/10 hover:text-white"
+              "border-white text-white hover:bg-white/10 hover:text-white"
             )}
           >
             Request Quotation
@@ -45,7 +45,7 @@ export function ContactCTA({
             href="tel:+919876543210"
             className={cn(
               buttonVariants({ size: "lg", variant: "outline" }),
-              "border-white text-brand-primary hover:bg-white/10 hover:text-white"
+              "border-white text-white hover:bg-white/10 hover:text-white"
             )}
           >
             <Phone className="mr-2 h-4 w-4" />

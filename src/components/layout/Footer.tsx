@@ -82,7 +82,7 @@ export function Footer() {
           </div>
 
           <div className="md:hidden">
-            <Accordion typeof="multiple" className="w-full">
+            <Accordion type="multiple" className="w-full">
               {footerSections.map((section) => (
                 <AccordionItem key={section.title} value={section.title}>
                   <AccordionTrigger className="text-sm font-semibold">

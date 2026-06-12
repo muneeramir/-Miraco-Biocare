@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ContactCTA } from "@/components/shared/ContactCTA";
@@ -68,12 +69,12 @@ export default function TeamPage() {
               We are always looking for talented professionals passionate about healthcare
               and life sciences. Explore career opportunities at Miraco Biocare.
             </p>
-            <a
+            <Link
               href="/careers"
               className="mt-6 inline-flex items-center rounded-md bg-brand-primary px-6 py-2.5 text-sm font-medium text-white hover:bg-brand-primary/90"
             >
               View Careers
-            </a>
+            </Link>
           </div>
         </div>
       </section>
