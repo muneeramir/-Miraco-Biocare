@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { company } from "@/data/company";
+import { cn } from "@/lib/utils";
 
 const highlights = [
   "Globally recognized manufacturer partnerships",
@@ -52,9 +53,12 @@ export function AboutSection() {
                 </li>
               ))}
             </ul>
-            <Button asChild>
-              <Link href="/about">Learn More About Us</Link>
-            </Button>
+            <Link
+              href="/about"
+              className={cn(buttonVariants())}
+            >
+              Learn More About Us
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}

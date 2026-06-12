@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function CTASection() {
   return (
@@ -30,12 +31,21 @@ export default function CTASection() {
               </h2>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-end">
-              <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href="/contact">Contact Our Team</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <Link href="/request-quotation">Request Consultation</Link>
-              </Button>
+              <Link
+                href="/contact"
+                className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}
+              >
+                Contact Our Team
+              </Link>
+              <Link
+                href="/request-quotation"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "w-full sm:w-auto"
+                )}
+              >
+                Request Consultation
+              </Link>
             </div>
           </div>
           <motion.div

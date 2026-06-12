@@ -4,8 +4,9 @@ import { Dna, Check, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ContactCTA } from "@/components/shared/ContactCTA";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { genomicsApplications } from "@/data/divisions-content";
 
 export const metadata = createMetadata({
@@ -125,12 +126,13 @@ export default function GenomicsPage() {
 
       <section className="section-padding bg-white">
         <div className="container-custom text-center">
-          <Button asChild size="lg">
-            <Link href="/request-quotation">
-              Request Genomics Quotation
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <Link
+            href="/request-quotation"
+            className={cn(buttonVariants({ size: "lg" }))}
+          >
+            Request Genomics Quotation
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
       </section>
 

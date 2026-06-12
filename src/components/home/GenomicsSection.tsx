@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Dna, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { genomicsApplications } from "@/data/divisions-content";
+import { cn } from "@/lib/utils";
 
 export function GenomicsSection() {
   return (
@@ -46,9 +47,15 @@ export function GenomicsSection() {
                 </li>
               ))}
             </ul>
-            <Button asChild className="mt-6 bg-white text-brand-primary hover:bg-white/90">
-              <Link href="/genomics">Explore Genomics Solutions</Link>
-            </Button>
+            <Link
+              href="/genomics"
+              className={cn(
+                buttonVariants(),
+                "mt-6 bg-white text-brand-primary hover:bg-white/90"
+              )}
+            >
+              Explore Genomics Solutions
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}

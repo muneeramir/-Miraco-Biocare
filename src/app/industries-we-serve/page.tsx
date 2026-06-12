@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { industriesWeServe } from "@/data/industries";
 import { MobileCarousel } from "@/components/shared/MobileCarousel";
 import {
@@ -237,21 +238,24 @@ export default function IndustriesWeServePage() {
             organization’s goals and innovation initiatives.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-auto bg-white text-brand-primary hover:bg-white/95 hover:text-brand-primary shadow-lg transition-transform active:scale-95"
+            <Link
+              href="/contact"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "w-full sm:w-auto bg-white text-brand-primary hover:bg-white/95 hover:text-brand-primary shadow-lg transition-transform active:scale-95"
+              )}
             >
-              <Link href="/contact">Contact Us</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border-white text-white hover:bg-white/10 hover:text-white shadow-lg transition-transform active:scale-95"
+              Contact Us
+            </Link>
+            <Link
+              href="/contact?subject=consultation"
+              className={cn(
+                buttonVariants({ size: "lg", variant: "outline" }),
+                "w-full sm:w-auto border-white text-white hover:bg-white/10 hover:text-white shadow-lg transition-transform active:scale-95"
+              )}
             >
-              <Link href="/contact?subject=consultation">Request Consultation</Link>
-            </Button>
+              Request Consultation
+            </Link>
           </div>
         </div>
       </section>

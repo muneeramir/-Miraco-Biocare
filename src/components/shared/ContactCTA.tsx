@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ContactCTAProps {
   title?: string;
@@ -21,35 +22,35 @@ export function ContactCTA({
           {description}
         </p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-8 md:gap-4">
-          <Button
-            asChild
-            size="lg"
-            className="bg-white text-brand-primary hover:bg-white/90"
+          <Link
+            href="/contact"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "bg-white text-brand-primary hover:bg-white/90"
+            )}
           >
-            <Link href="/contact">
-              Contact Us
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-white text-brand-primary hover:bg-white/10 hover:text-white"
+            Contact Us
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+          <Link
+            href="/request-quotation"
+            className={cn(
+              buttonVariants({ size: "lg", variant: "outline" }),
+              "border-white text-brand-primary hover:bg-white/10 hover:text-white"
+            )}
           >
-            <Link href="/request-quotation">Request Quotation</Link>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-white text-brand-primary hover:bg-white/10 hover:text-white"
+            Request Quotation
+          </Link>
+          <a
+            href="tel:+919876543210"
+            className={cn(
+              buttonVariants({ size: "lg", variant: "outline" }),
+              "border-white text-brand-primary hover:bg-white/10 hover:text-white"
+            )}
           >
-            <Link href="tel:+919876543210">
-              <Phone className="mr-2 h-4 w-4" />
-              Call Us
-            </Link>
-          </Button>
+            <Phone className="mr-2 h-4 w-4" />
+            Call Us
+          </a>
         </div>
       </div>
     </section>

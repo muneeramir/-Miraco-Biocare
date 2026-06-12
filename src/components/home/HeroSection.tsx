@@ -13,7 +13,7 @@ import {
 } from "swiper/modules";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { company } from "@/data/company";
 import { heroBanners } from "@/data/hero-banners";
 import { cn } from "@/lib/utils";
@@ -97,24 +97,25 @@ export function HeroSection() {
                       {banner.subtitle}
                     </p>
                     <div className="mt-2.5 flex flex-col gap-2 sm:mt-4 sm:flex-row md:mt-5">
-                      <Button
-                        asChild
-                        size="sm"
-                        className="h-8 text-xs md:h-10 md:text-sm"
+                      <Link
+                        href="/#divisions"
+                        className={cn(
+                          buttonVariants({ size: "sm" }),
+                          "h-8 text-xs md:h-10 md:text-sm"
+                        )}
                       >
-                        <Link href="/#divisions">
-                          Explore Solutions
-                          <ArrowRight className="ml-1.5 h-3.5 w-3.5 md:ml-2 md:h-4 md:w-4" />
-                        </Link>
-                      </Button>
-                      <Button
-                        asChild
-                        size="sm"
-                        variant="outline"
-                        className="h-8 text-xs md:h-10 md:text-sm"
+                        Explore Solutions
+                        <ArrowRight className="ml-1.5 h-3.5 w-3.5 md:ml-2 md:h-4 md:w-4" />
+                      </Link>
+                      <Link
+                        href="/request-quotation"
+                        className={cn(
+                          buttonVariants({ size: "sm", variant: "outline" }),
+                          "h-8 text-xs md:h-10 md:text-sm"
+                        )}
                       >
-                        <Link href="/request-quotation">Request Quotation</Link>
-                      </Button>
+                        Request Quotation
+                      </Link>
                     </div>
                   </div>
                 </div>

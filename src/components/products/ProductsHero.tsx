@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Dna, FlaskConical, ShieldCheck, Activity } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const heroFeatures = [
   "Clinical diagnostics excellence",
@@ -34,12 +35,21 @@ export default function ProductsHero() {
               Explore Miraco Biocare's comprehensive product portfolio of state-of-the-art scientific instruments, diagnostic equipment, laboratory consumables, and research reagents designed for clinical laboratories, research centers, and biotechnology organizations.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href="#solutions">Explore Solutions</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <Link href="/contact">Contact Us</Link>
-              </Button>
+              <Link
+                href="#solutions"
+                className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}
+              >
+                Explore Solutions
+              </Link>
+              <Link
+                href="/contact"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "w-full sm:w-auto"
+                )}
+              >
+                Contact Us
+              </Link>
             </div>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {heroFeatures.map((feature) => (

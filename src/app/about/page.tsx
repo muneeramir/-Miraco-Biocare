@@ -4,8 +4,9 @@ import { CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ContactCTA } from "@/components/shared/ContactCTA";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { company } from "@/data/company";
 import { leadership } from "@/data/team";
 import { AboutWhoWeAre } from "@/components/about/AboutWhoWeAre";
@@ -167,9 +168,12 @@ export default function AboutPage() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <Button asChild variant="outline">
-              <Link href="/team">View Full Team</Link>
-            </Button>
+            <Link
+              href="/team"
+              className={cn(buttonVariants({ variant: "outline", size: "default" }))}
+            >
+              View Full Team
+            </Link>
           </div>
         </div>
       </section>
@@ -207,9 +211,12 @@ export default function AboutPage() {
                 through installation, training, and ongoing support, our team is committed
                 to your satisfaction.
               </p>
-              <Button asChild>
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
+              <Link
+                href="/contact"
+                className={cn(buttonVariants({ variant: "default", size: "default" }))}
+              >
+                Get in Touch
+              </Link>
             </div>
           </div>
         </div>

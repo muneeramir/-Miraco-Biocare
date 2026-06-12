@@ -4,7 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface SolutionSection {
   title: string;
@@ -35,12 +36,16 @@ export function SolutionPreview({
       <div className="container-custom">
         <div className="mb-8 flex flex-col items-start justify-between gap-4 md:mb-12 md:flex-row md:items-end">
           <SectionHeading label={label} title={title} description={description} />
-          <Button asChild variant="outline" className="shrink-0">
-            <Link href={href}>
-              View All
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <Link
+            href={href}
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "shrink-0"
+            )}
+          >
+            View All
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {sections.map((section, i) => (

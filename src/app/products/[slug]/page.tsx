@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import { Check, ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContactCTA } from "@/components/shared/ContactCTA";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { products, getProductBySlug } from "@/data/products";
 
 const divisionPaths: Record<string, string> = {
@@ -58,12 +59,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <Button asChild variant="ghost" size="sm" className="mb-6">
-            <Link href={divisionPath}>
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to {product.division}
-            </Link>
-          </Button>
+          <Link
+            href={divisionPath}
+            className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mb-6")}
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to {product.division}
+          </Link>
 
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
@@ -118,12 +120,18 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild>
-                  <Link href="/request-quotation">Request Quotation</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link href="/contact">Contact Us</Link>
-                </Button>
+                <Link
+                  href="/request-quotation"
+                  className={cn(buttonVariants())}
+                >
+                  Request Quotation
+                </Link>
+                <Link
+                  href="/contact"
+                  className={cn(buttonVariants({ variant: "outline" }))}
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
           </div>

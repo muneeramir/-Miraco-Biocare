@@ -5,7 +5,8 @@ import type { ReactNode } from "react";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ContactCTA } from "@/components/shared/ContactCTA";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface Section {
   title: string;
@@ -96,12 +97,18 @@ export function DivisionPageTemplate({
                 </div>
               )}
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button asChild>
-                  <Link href="/request-quotation">Request Quotation</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link href="/contact">Contact Us</Link>
-                </Button>
+                <Link
+                  href="/request-quotation"
+                  className={cn(buttonVariants())}
+                >
+                  Request Quotation
+                </Link>
+                <Link
+                  href="/contact"
+                  className={cn(buttonVariants({ variant: "outline" }))}
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
@@ -187,12 +194,13 @@ export function DivisionPageTemplate({
             Our application specialists are ready to help you select the right solutions
             for your laboratory requirements.
           </p>
-          <Button asChild className="mt-6" size="lg">
-            <Link href="/contact">
-              Contact Our Experts
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <Link
+            href="/contact"
+            className={cn(buttonVariants({ size: "lg" }), "mt-6")}
+          >
+            Contact Our Experts
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
       </section>
 

@@ -36,16 +36,11 @@ export function Footer() {
         <div className="mb-8 grid gap-8 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-          <img
-            src="/logo.png"
-            alt="Miraco Biocare Logo"
-            className="h-10 w-auto md:h-15 md:w-auto object-contain"
-          />
-
- 
-</Link>
-              
+              <img
+                src="/logo.png"
+                alt="Miraco Biocare Logo"
+                className="h-10 w-auto md:h-15 md:w-auto object-contain"
+              />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">{company.tagline}</p>
             <div className="mt-4 flex gap-3">

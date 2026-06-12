@@ -5,8 +5,9 @@ import { Check, ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContactCTA } from "@/components/shared/ContactCTA";
 import { IconResolver } from "@/components/shared/IconResolver";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { services, getServiceBySlug } from "@/data/services";
 
 interface ServicePageProps {
@@ -48,12 +49,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <Button asChild variant="ghost" size="sm" className="mb-6">
-            <Link href="/services">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Services
-            </Link>
-          </Button>
+          <Link
+            href="/services"
+            className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mb-6")}
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Services
+          </Link>
 
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
@@ -104,9 +106,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </ul>
               </div>
 
-              <Button asChild className="mt-8">
-                <Link href="/contact">Request This Service</Link>
-              </Button>
+              <Link
+                href="/contact"
+                className={cn(buttonVariants(), "mt-8")}
+              >
+                Request This Service
+              </Link>
             </div>
           </div>
         </div>

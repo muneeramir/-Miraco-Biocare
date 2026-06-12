@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import { MapPin, Briefcase, ArrowLeft, Check } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContactCTA } from "@/components/shared/ContactCTA";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { careers, getCareerBySlug } from "@/data/careers";
 
 interface CareerPageProps {
@@ -46,12 +47,13 @@ export default async function CareerDetailPage({ params }: CareerPageProps) {
 
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
-          <Button asChild variant="ghost" size="sm" className="mb-6">
-            <Link href="/careers">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Careers
-            </Link>
-          </Button>
+          <Link
+            href="/careers"
+            className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mb-6")}
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Careers
+          </Link>
 
           <div className="mb-6 flex flex-wrap gap-3">
             <Badge className="bg-brand-primary">{career.department}</Badge>
@@ -103,9 +105,12 @@ export default async function CareerDetailPage({ params }: CareerPageProps) {
             </ul>
           </div>
 
-          <Button asChild className="mt-8" size="lg">
-            <Link href="/contact">Apply Now</Link>
-          </Button>
+          <Link
+            href="/contact"
+            className={cn(buttonVariants({ size: "lg" }), "mt-8")}
+          >
+            Apply Now
+          </Link>
         </div>
       </section>
 

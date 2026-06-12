@@ -5,10 +5,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { newsArticles } from "@/data/news";
 import { MobileCarousel } from "@/components/shared/MobileCarousel";
+import { cn } from "@/lib/utils";
 
 export function NewsSection() {
   const articles = newsArticles.slice(0, 3);
@@ -22,12 +23,13 @@ export function NewsSection() {
             title="Latest Updates"
             description="Stay informed about our partnerships, product launches, and industry events."
           />
-          <Button asChild variant="outline">
-            <Link href="/news">
-              View All News
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <Link
+            href="/news"
+            className={cn(buttonVariants({ variant: "outline" }))}
+          >
+            View All News
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
         <MobileCarousel className="md:grid-cols-3 md:gap-6" breakpoint="md">
           {articles.map((article, i) => (

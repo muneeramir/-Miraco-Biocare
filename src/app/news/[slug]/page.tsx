@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import { Calendar, ArrowLeft, User } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContactCTA } from "@/components/shared/ContactCTA";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { newsArticles, getNewsBySlug } from "@/data/news";
 
 interface NewsPageProps {
@@ -47,12 +48,13 @@ export default async function NewsDetailPage({ params }: NewsPageProps) {
 
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
-          <Button asChild variant="ghost" size="sm" className="mb-6">
-            <Link href="/news">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to News
-            </Link>
-          </Button>
+          <Link
+            href="/news"
+            className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mb-6")}
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to News
+          </Link>
 
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <Badge className="bg-brand-primary">{article.category}</Badge>
