@@ -82,7 +82,7 @@ export function ContactForm() {
       </div>
       <div>
         <Label>Subject *</Label>
-        <Select onValueChange={(v) => setValue("subject", v)}>
+        <Select onValueChange={(v) => setValue("subject", v as string)}>
           <SelectTrigger className="mt-1.5">
             <SelectValue placeholder="Select a subject" />
           </SelectTrigger>
