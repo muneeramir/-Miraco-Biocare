@@ -186,7 +186,7 @@ export function QuotationForm() {
                       <Select
                         value={watchedProducts[index]?.product || ""}
                         onValueChange={(v) =>
-                          setValue(`products.${index}.product`, v)
+                          setValue(`products.${index}.product`, v ?? "")
                         }
                       >
                         <SelectTrigger>
@@ -234,7 +234,7 @@ export function QuotationForm() {
               >
                 <Select
                   value={watchedProducts[index]?.product || ""}
-                  onValueChange={(v) => setValue(`products.${index}.product`, v)}
+                  onValueChange={(v) => setValue(`products.${index}.product`, v ?? "")}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select product" />
