@@ -4,12 +4,12 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import {
   Autoplay,
   EffectFade,
   Navigation,
   Pagination,
-  type Swiper as SwiperType,
 } from "swiper/modules";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
