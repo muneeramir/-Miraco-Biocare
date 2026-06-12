@@ -28,7 +28,7 @@ import { products } from "@/data/products";
 
 const productRowSchema = z.object({
   product: z.string().min(1, "Select a product"),
-  quantity: z.coerce.number().int().min(1, "Min quantity is 1"),
+  quantity: z.string().or(z.number()).transform((val) => Number(val)).pipe(z.number().int().min(1, "Min quantity is 1")),
 });
 
 const quotationSchema = z.object({
