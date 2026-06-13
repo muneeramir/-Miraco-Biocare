@@ -5,13 +5,14 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { company } from "@/data/company";
 import { heroBanners } from "@/data/hero-banners";
 import { cn } from "@/lib/utils";
 import "swiper/css";
+import "swiper/css/effect-fade";
 
 interface SlideContentProps {
   banner: (typeof heroBanners)[number];
@@ -34,9 +35,7 @@ function SlideContent({ banner, isActive, index }: SlideContentProps) {
           <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-secondary sm:text-xs">
             Welcome to {company.name}
           </p>
-          <p className="mt-1 text-xs font-medium text-brand-primary sm:text-sm md:text-base">
-            {company.welcomeTagline}
-          </p>
+        
         </div>
       )}
 
@@ -101,7 +100,9 @@ export function HeroSection() {
     <section className="relative bg-brand-light">
       <div className="hero-carousel relative h-[220px] sm:h-[280px] md:h-[350px] lg:h-[550px] overflow-hidden">
         <Swiper
-          modules={[Autoplay]}
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
           speed={900}
           loop={true}
           autoplay={{
@@ -117,6 +118,7 @@ export function HeroSection() {
           allowTouchMove={true}
           className="h-full w-full"
         >
+
           {heroBanners.map((banner, index) => (
             <SwiperSlide key={banner.id} className="relative h-full overflow-hidden">
               <>
