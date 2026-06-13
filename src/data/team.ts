@@ -6,13 +6,12 @@ export interface TeamMember {
 }
 
 export const leadership: TeamMember[] = [
-  {
-    name: "Dr. Rajesh Kumar",
-    role: "Managing Director & CEO",
-    bio: "Over 25 years of experience in healthcare and life sciences, leading strategic partnerships and business development across India.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
-  },
+ {
+  name: "Dr. Mir Muneer",
+  role: "Founder & CEO",
+  bio: "Over 25 years of experience in healthcare and life sciences, leading strategic partnerships and business development across India.",
+  image: "/drmuneer.png",
+},
   {
     name: "Dr. Priya Sharma",
     role: "Chief Scientific Officer",
