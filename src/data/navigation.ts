@@ -45,8 +45,8 @@ export const divisions: NavChild[] = [
 
 export const aboutSubmenu: NavChild[] = [
   {
-    title: "Team",
-    href: "/team",
+    title: "Leadership",
+    href: "/leadership",
     description: "Meet our leadership team and industry experts.",
   },
   {
@@ -94,7 +94,7 @@ export const mainNav: NavItem[] = [
 export const footerLinks = {
   company: [
     { title: "About Us", href: "/about" },
-    { title: "Our Team", href: "/team" },
+    { title: "Our Leadership", href: "/leadership" },
     { title: "Industries We Serve", href: "/industries-we-serve" },
     { title: "Gallery", href: "/gallery" },
     { title: "Careers", href: "/careers" },

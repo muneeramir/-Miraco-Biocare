@@ -16,26 +16,26 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: company.email,
-    href: `mailto:${company.email}`,
+    values: company.email.split(";").map((e) => e.trim()),
+    type: "email",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: company.phone,
-    href: `tel:${company.phone.replace(/\s/g, "")}`,
+    values: company.phone.split(",").map((p) => p.trim()),
+    type: "phone",
   },
   {
     icon: Globe,
     label: "Website",
-    value: company.website,
-    href: `https://${company.website}`,
+    values: [company.website],
+    type: "website",
   },
   {
     icon: MapPin,
     label: "Address",
-    value: company.address.full,
-    href: `https://maps.google.com/?q=${encodeURIComponent(company.address.full)}`,
+    values: [company.address.full],
+    type: "address",
   },
 ];
 
@@ -62,23 +62,67 @@ export default function ContactPage() {
                 description={company.tagline}
               />
               <div className="space-y-4">
-                {contactInfo.map((info) => (
-                  <a
-                    key={info.label}
-                    href={info.href}
-                    target={info.label === "Address" ? "_blank" : undefined}
-                    rel={info.label === "Address" ? "noopener noreferrer" : undefined}
-                    className="flex items-start gap-4 rounded-lg border border-brand-border p-4 transition-colors hover:border-brand-primary/30"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-primary/10">
-                      <info.icon className="h-5 w-5 text-brand-primary" />
+                {contactInfo.map((info) => {
+                  const getHref = (val: string) => {
+                    if (info.type === "email") return `mailto:${val}`;
+                    if (info.type === "phone") return `tel:${val}`;
+                    if (info.type === "website") return `https://${val}`;
+                    return `https://maps.google.com/?q=${encodeURIComponent(val)}`;
+                  };
+
+                  const isLinkCard = info.type === "address" || info.type === "website";
+
+                  const cardContent = (
+                    <>
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-primary/10">
+                        <info.icon className="h-5 w-5 text-brand-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-brand-text">{info.label}</p>
+                        <div className="flex flex-col gap-1 mt-0.5">
+                          {info.values.map((val) =>
+                            !isLinkCard ? (
+                              <a
+                                key={val}
+                                href={getHref(val)}
+                                className="text-sm text-muted-foreground hover:text-brand-primary transition-colors"
+                              >
+                                {val}
+                              </a>
+                            ) : (
+                              <span key={val} className="text-sm text-muted-foreground">
+                                {val}
+                              </span>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  );
+
+                  if (isLinkCard) {
+                    return (
+                      <a
+                        key={info.label}
+                        href={getHref(info.values[0])}
+                        target={info.type === "address" ? "_blank" : undefined}
+                        rel={info.type === "address" ? "noopener noreferrer" : undefined}
+                        className="flex items-start gap-4 rounded-lg border border-brand-border p-4 transition-colors hover:border-brand-primary/30"
+                      >
+                        {cardContent}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <div
+                      key={info.label}
+                      className="flex items-start gap-4 rounded-lg border border-brand-border p-4 transition-colors"
+                    >
+                      {cardContent}
                     </div>
-                    <div>
-                      <p className="text-sm font-medium text-brand-text">{info.label}</p>
-                      <p className="text-sm text-muted-foreground">{info.value}</p>
-                    </div>
-                  </a>
-                ))}
+                  );
+                })}
               </div>
 
               <div className="mt-6 overflow-hidden rounded-lg border border-brand-border">

@@ -169,10 +169,10 @@ export default function AboutPage() {
           </div>
           <div className="mt-8 text-center">
             <Link
-              href="/team"
+              href="/leadership"
               className={cn(buttonVariants({ variant: "outline", size: "default" }))}
             >
-              View Full Team
+              View Full Leadership
             </Link>
           </div>
         </div>

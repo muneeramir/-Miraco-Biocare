@@ -8,21 +8,21 @@ import { leadership } from "@/data/team";
 import { MobileCarousel } from "@/components/shared/MobileCarousel";
 
 export const metadata = createMetadata({
-  title: "Our Team",
+  title: "Our Leadership",
   description:
     "Meet the leadership team at Miraco Biocare Private Limited driving innovation in healthcare and life sciences.",
-  path: "/team",
+  path: "/leadership",
 });
 
 export default function TeamPage() {
   return (
     <>
       <PageHero
-        title="Our Team"
+        title="Our Leadership"
         subtitle="Experienced professionals dedicated to advancing healthcare and life sciences"
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Our Team" },
+          { label: "Our Leadership" },
         ]}
         image="/hero/banner-3.jpg"
       />
@@ -35,7 +35,7 @@ export default function TeamPage() {
             description="Our leadership team brings decades of combined experience in healthcare, diagnostics, life sciences, and business management."
             align="center"
           />
-          <MobileCarousel className="sm:grid-cols-2 lg:grid-cols-4" breakpoint="sm">
+          <MobileCarousel className="sm:grid-cols-2 lg:grid-cols-4 " breakpoint="sm">
             {leadership.map((member) => (
               <div
                 key={member.name}

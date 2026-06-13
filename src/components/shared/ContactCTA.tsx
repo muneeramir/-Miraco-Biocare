@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { company } from "@/data/company";
 
 interface ContactCTAProps {
   title?: string;
@@ -42,7 +43,7 @@ export function ContactCTA({
             Request Quotation
           </Link>
           <a
-            href="tel:+919876543210"
+            href={`tel:${company.phone.split(",")[0].trim()}`}
             className={cn(
               buttonVariants({ size: "lg", variant: "outline" }),
               "border-white text-brand-primary hover:bg-white/10 hover:text-white"

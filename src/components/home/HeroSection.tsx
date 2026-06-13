@@ -35,7 +35,7 @@ function SlideContent({ banner, isActive, index }: SlideContentProps) {
           <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-secondary sm:text-xs">
             Welcome to {company.name}
           </p>
-        
+    
         </div>
       )}
 

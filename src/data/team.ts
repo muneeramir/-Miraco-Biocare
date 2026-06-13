@@ -12,25 +12,5 @@ export const leadership: TeamMember[] = [
   bio: "Over 25 years of experience in healthcare and life sciences, leading strategic partnerships and business development across India.",
   image: "/drmuneer.png",
 },
-  {
-    name: "Ishfaq MaveRicks",
-    role: "Medical Representative",
-    bio: " with expertise in diagnostics, genomics, and laboratory sciences. Former research director at a leading medical institute.",
-    image:
-      "/MedicalRepresentative.png",
-  },
-  {
-    name: "Arun Mehta",
-    role: "Director of Operations",
-    bio: "Seasoned operations leader with extensive experience in supply chain management, logistics, and customer service excellence.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-  },
-  {
-    name: "Dr. Sunita Reddy",
-    role: "Head of Clinical Diagnostics",
-    bio: "Clinical pathologist with deep expertise in laboratory medicine, quality systems, and diagnostic technology implementation.",
-    image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80",
-  },
+ 
 ];

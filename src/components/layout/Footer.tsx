@@ -108,11 +108,27 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
-  <img src="https://nextgenlife.com/wp-content/uploads/2023/11/msme.png" alt="" className="w-[100px] h-[46px] object-contain" />
-  <img src="https://nextgenlife.com/wp-content/uploads/2023/11/gem.png" alt="" className="w-[100px] h-[46px] object-contain" />
-  <img src="https://nextgenlife.com/wp-content/uploads/2023/11/ISO.png" alt="" className="w-[100px] h-[46px] object-contain" />
-  <img src="https://nextgenlife.com/wp-content/uploads/2023/11/makeinindia.png" alt="" className="w-[100px] h-[46px] object-contain" />
+       <div className="flex flex-wrap justify-center gap-4">
+  <img
+    src="https://nextgenlife.com/wp-content/uploads/2023/11/msme.png"
+    alt=""
+    className="w-[110px] h-[46px] sm:w-[150px] sm:h-[56px] object-contain"
+  />
+  <img
+    src="https://nextgenlife.com/wp-content/uploads/2023/11/gem.png"
+    alt=""
+    className="w-[110px] h-[46px] sm:w-[150px] sm:h-[56px] object-contain"
+  />
+  <img
+    src="https://nextgenlife.com/wp-content/uploads/2023/11/ISO.png"
+    alt=""
+    className="w-[110px] h-[46px] sm:w-[150px] sm:h-[56px] object-contain"
+  />
+  <img
+    src="https://nextgenlife.com/wp-content/uploads/2023/11/makeinindia.png"
+    alt=""
+    className="w-[110px] h-[46px] sm:w-[150px] sm:h-[56px] object-contain"
+  />
 </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-brand-border pt-6 text-sm text-muted-foreground md:flex-row">

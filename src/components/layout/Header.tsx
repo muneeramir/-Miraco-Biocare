@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { TopBar } from "./TopBar";
 import { NavDropdown } from "./NavDropdown";
 import { MobileNavGroup } from "./MobileNavGroup";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
@@ -79,7 +80,7 @@ export function Header() {
       <div
         className={cn(
           "transition-all duration-300",
-          scrolled ? "glass-header shadow-sm" : "bg-white"
+          scrolled ? "glass-header shadow-sm" : "bg-white dark:bg-background"
         )}
       >
         <div className="container-custom flex h-16 items-center justify-between md:h-20">
@@ -93,7 +94,7 @@ export function Header() {
  
 </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex">
+          <nav className="hidden items-center gap-1 xl:flex text-brand-text">
             {mainNav.map((item) =>
               item.children ? (
                 <NavDropdown
@@ -110,7 +111,7 @@ export function Header() {
                   href={item.href}
                   className={cn(
                     "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-brand-light hover:text-brand-primary",
-                    isActive(item.href) && "text-brand-primary"
+                    isActive(item.href) ? "text-brand-primary" : "text-brand-text"
                   )}
                 >
                   {item.title}
@@ -120,6 +121,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <Sheet open={searchOpen} onOpenChange={setSearchOpen}>
               <SheetTrigger
                 className={cn(
