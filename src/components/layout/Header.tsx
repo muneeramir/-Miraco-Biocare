@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search, X } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { mainNav } from "@/data/navigation";
@@ -173,37 +173,41 @@ export function Header() {
 
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger
-                render={(triggerProps) => (
-                  <motion.button
-                    {...triggerProps}
-                    type="button"
-                    aria-label={mobileOpen ? "Close menu" : "Open menu"}
-                    className="relative xl:hidden flex h-11 w-11 items-center justify-center rounded-full border border-brand-border bg-white/95 text-brand-text shadow-lg shadow-slate-900/10 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
-                    whileTap={{ scale: 0.96 }}
-                    whileHover={{ scale: 1.03 }}
-                    animate={{ scale: mobileOpen ? 1.02 : 1 }}
-                    transition={{ type: "spring", stiffness: 280, damping: 24 }}
-                  >
-                    <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
-                    <motion.span
-                      className="absolute h-0.5 w-5 rounded-full bg-current"
-                      animate={mobileOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -7 }}
-                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                      style={{ transformOrigin: "center" }}
-                    />
-                    <motion.span
-                      className="absolute h-0.5 w-5 rounded-full bg-current"
-                      animate={mobileOpen ? { opacity: 0, scaleX: 0.4 } : { opacity: 1, scaleX: 1 }}
-                      transition={{ duration: 0.18, ease: "easeOut" }}
-                    />
-                    <motion.span
-                      className="absolute h-0.5 w-5 rounded-full bg-current"
-                      animate={mobileOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 7 }}
-                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                      style={{ transformOrigin: "center" }}
-                    />
-                  </motion.button>
-                )}
+                render={(triggerProps) => {
+                  const { onDrag: _onDrag, ...safeTriggerProps } = triggerProps;
+                  void _onDrag;
+                  return (
+                    <motion.button
+                      {...(safeTriggerProps as HTMLMotionProps<"button">)}
+                      type="button"
+                      aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                      className="relative xl:hidden flex h-11 w-11 items-center justify-center rounded-full border border-brand-border bg-white/95 text-brand-text shadow-lg shadow-slate-900/10 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+                      whileTap={{ scale: 0.96 }}
+                      whileHover={{ scale: 1.03 }}
+                      animate={{ scale: mobileOpen ? 1.02 : 1 }}
+                      transition={{ type: "spring", stiffness: 280, damping: 24 }}
+                    >
+                      <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
+                      <motion.span
+                        className="absolute h-0.5 w-5 rounded-full bg-current"
+                        animate={mobileOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -7 }}
+                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        style={{ transformOrigin: "center" }}
+                      />
+                      <motion.span
+                        className="absolute h-0.5 w-5 rounded-full bg-current"
+                        animate={mobileOpen ? { opacity: 0, scaleX: 0.4 } : { opacity: 1, scaleX: 1 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                      />
+                      <motion.span
+                        className="absolute h-0.5 w-5 rounded-full bg-current"
+                        animate={mobileOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 7 }}
+                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        style={{ transformOrigin: "center" }}
+                      />
+                    </motion.button>
+                  );
+                }}
               />
               <SheetContent
                 side="right"
