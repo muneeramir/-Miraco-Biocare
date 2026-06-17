@@ -15,6 +15,7 @@ import { TopBar } from "./TopBar";
 import { NavDropdown } from "./NavDropdown";
 import { MobileNavGroup } from "./MobileNavGroup";
 import { ThemeToggle } from "./ThemeToggle";
+import { Logo3D } from "./Logo3D";
 
 export function Header() {
   const pathname = usePathname();
@@ -98,17 +99,7 @@ export function Header() {
           )}
         >
        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="Miraco Biocare Logo"
-            width={180}
-            height={60}
-            className={cn(
-              "w-auto object-contain logo-img transition-all duration-300",
-              scrolled ? "h-8 md:h-10" : "h-10 md:h-15"
-            )}
-            priority
-          />
+          <Logo3D scrolled={scrolled} />
        </Link>
 
           <nav className="hidden items-center gap-1 xl:flex text-brand-text">
