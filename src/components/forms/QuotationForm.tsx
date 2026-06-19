@@ -51,6 +51,7 @@ type QuotationFormData = z.input<typeof quotationSchema>;
 
 export function QuotationForm() {
   const [showSuccess, setShowSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -77,10 +78,44 @@ export function QuotationForm() {
   const watchedProducts = watch("products");
 
   const onSubmit = async (data: QuotationFormData) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    console.log(data);
-    setShowSuccess(true);
-    reset();
+    setSubmitError(null);
+    try {
+      const response = await fetch("/api/request-quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.message || result.error || "Failed to submit quote request. Please try again."
+        );
+      }
+
+      setShowSuccess(true);
+      reset({
+        name: "",
+        email: "",
+        phone: "",
+        organization: "",
+        designation: "",
+        address: "",
+        city: "",
+        state: "",
+        pincode: "",
+        products: [{ product: "", quantity: 1 }],
+        notes: "",
+        termsAccepted: false,
+        accurateInfo: false,
+      });
+    } catch (err: any) {
+      console.error("Quote Form submission error:", err);
+      setSubmitError(err.message || "An unexpected error occurred. Please try again.");
+    }
   };
 
   return (
@@ -318,6 +353,11 @@ export function QuotationForm() {
           )}
         </div>
 
+        {submitError && (
+          <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive font-medium border border-destructive/20">
+            {submitError}
+          </div>
+        )}
         <Button type="submit" size="lg" disabled={isSubmitting}>
           {isSubmitting ? "Submitting..." : "Request Quote"}
         </Button>

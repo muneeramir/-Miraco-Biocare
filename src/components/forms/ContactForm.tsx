@@ -36,6 +36,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
   const [showSuccess, setShowSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -60,10 +61,30 @@ export function ContactForm() {
   }, [register]);
 
   const onSubmit = async (data: ContactFormData) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    console.log(data);
-    setShowSuccess(true);
-    reset();
+    setSubmitError(null);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.message || result.error || "Failed to send message. Please try again."
+        );
+      }
+
+      setShowSuccess(true);
+      reset();
+    } catch (err: any) {
+      console.error("Contact Form submission error:", err);
+      setSubmitError(err.message || "An unexpected error occurred. Please try again.");
+    }
   };
 
   return (
@@ -128,6 +149,11 @@ export function ContactForm() {
             <p className="mt-1 text-xs text-destructive">{errors.message.message}</p>
           )}
         </div>
+        {submitError && (
+          <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive font-medium border border-destructive/20">
+            {submitError}
+          </div>
+        )}
         <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
