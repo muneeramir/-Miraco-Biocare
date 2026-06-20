@@ -1,22 +1,63 @@
 export interface Partner {
   name: string;
-  initials: string;
-  website?: string;
+  slug: string;
+  logo: string;
+  website: string;
 }
 
 export const partners: Partner[] = [
-  { name: "Roche Diagnostics", initials: "RD" },
-  { name: "Thermo Fisher", initials: "TF" },
-  { name: "Illumina", initials: "IL" },
-  { name: "Agilent", initials: "AG" },
-  { name: "Bio-Rad", initials: "BR" },
-  { name: "Siemens Healthineers", initials: "SH" },
-  { name: "Beckman Coulter", initials: "BC" },
-  { name: "Abbott", initials: "AB" },
-  { name: "BD Biosciences", initials: "BD" },
-  { name: "PerkinElmer", initials: "PE" },
-  { name: "Qiagen", initials: "QG" },
-  { name: "Merck Life Science", initials: "MK" },
-  { name: "Eppendorf", initials: "EP", website: "https://www.eppendorf.com?utm_source=chatgpt.com" },
-  { name: "Haier Biomedical", initials: "HB", website: "https://www.haiermedical.com?utm_source=chatgpt.com" },
+  {
+    name: "Carl Zeiss",
+    slug: "carl-zeiss",
+    logo: "/partners/carl-zeiss.png",
+    website: "https://www.zeiss.com/",
+  },
+  {
+    name: "Genient Technologies",
+    slug: "genient-technologies",
+    logo: "/partners/genient-technologies.png",
+    website: "https://genient.co.in/",
+  },
+  {
+    name: "NextGen Life Sciences",
+    slug: "nextgen-life-sciences",
+    logo: "/partners/nextgen-life-sciences.png",
+    website: "https://nextgenlife.com/",
+  },
+  {
+    name: "GCC Biotech",
+    slug: "gcc-biotech",
+    logo: "/partners/gcc-biotech.png",
+    website: "https://gccbiotech.in/",
+  },
+  {
+    name: "AIT Biotech",
+    slug: "ait-biotech",
+    logo: "/partners/ait-biotech.png",
+    website: "https://www.aitbiotech.com/",
+  },
+  {
+    name: "Bioeksen",
+    slug: "bioeksen",
+    logo: "/partners/bioeksen.png",
+    website: "https://www.bioeksen.com/",
+  },
+  {
+    name: "IKA",
+    slug: "ika",
+    logo: "/partners/ika.png",
+    website: "https://www.ika.com/",
+  },
+  {
+    name: "Haier Biomedical",
+    slug: "haier-biomedical",
+    logo: "/partners/haier-biomedical.png",
+    website: "https://www.haiermedical.com/",
+  },
+  {
+    name: "HACH",
+    slug: "hach",
+    logo: "/partners/hach.png",
+    website: "https://www.hach.com/",
+  },
 ];

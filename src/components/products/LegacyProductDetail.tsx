@@ -1,16 +1,13 @@
 import Image from "@/components/shared/SafeImage";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Check, ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { ContactCTA } from "@/components/shared/ContactCTA";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import ProductActions from "@/components/ProductActions";
-import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
-import { products, getProductBySlug } from "@/data/products";
-import { enrichProduct } from "@/lib/product-enricher";
+import { type Product } from "@/data/products";
 
 const divisionPaths: Record<string, string> = {
   "Clinical Diagnostics": "/clinical-diagnostics",
@@ -20,31 +17,11 @@ const divisionPaths: Record<string, string> = {
   Biotechnology: "/biotechnology",
 };
 
-interface ProductPageProps {
-  params: Promise<{ slug: string }>;
+interface LegacyProductDetailProps {
+  product: Product;
 }
 
-export async function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
-}
-
-export async function generateMetadata({ params }: ProductPageProps) {
-  const { slug } = await params;
-  const product = getProductBySlug(slug);
-  if (!product) return {};
-  return createMetadata({
-    title: product.name,
-    description: product.description,
-    path: `/products/${slug}`,
-  });
-}
-
-export default async function ProductDetailPage({ params }: ProductPageProps) {
-  const { slug } = await params;
-  const rawProduct = getProductBySlug(slug);
-  if (!rawProduct) notFound();
-  const product = enrichProduct(rawProduct);
-
+export default function LegacyProductDetail({ product }: LegacyProductDetailProps) {
   const divisionPath = divisionPaths[product.division] ?? "/";
 
   return (
@@ -130,10 +107,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   Request Quotation
                 </Link>
                 <ProductActions product={product} layout="download-only" />
-                <Link
-                  href="/contact"
-                  className={cn(buttonVariants({ variant: "outline" }))}
-                >
+                <Link href="/contact" className={cn(buttonVariants({ variant: "outline" }))}>
                   Contact Us
                 </Link>
               </div>

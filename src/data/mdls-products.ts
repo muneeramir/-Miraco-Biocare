@@ -1,7 +1,7 @@
 // Centralized Molecular Diagnostics & Life Sciences (MDLS) Products Database
 // Spelled and structured exactly to the specified product hierarchy.
 
-import { resolveCatalogImagePath } from "@/lib/product-image-design-system";
+import { resolveCatalogImageUrl } from "@/lib/product-image-design-system";
 
 export interface MDLSProduct {
   slug: string;
@@ -329,7 +329,7 @@ const mdlsProductsData: MDLSProduct[] = [
   // ----------------------------------------------------
   {
     ...purificationKitsTemplate,
-    name: "SciPhi™ Genomic DNA Purification Kit",
+    name: "Genomic DNA Purification Kit",
     slug: "sciphi-genomic-dna-purification-kit",
     description: "High-performance spin-column kit for the rapid extraction of high-molecular-weight genomic DNA from blood, tissues, and cell cultures.",
     storageInfo: "Store spin columns and buffers at room temperature (15-25°C). Store reconstituted Proteinase K and RNase A reagents at -20°C for long-term stability. The kit is stable for up to 12 months from the date of manufacture when stored under these conditions.",
@@ -344,8 +344,8 @@ const mdlsProductsData: MDLSProduct[] = [
       "Reconstitution Buffer"
     ],
     orderingInfo: [
-      "MBC-LS-GDNA-050: SciPhi™ Genomic DNA Purification Kit (50 Preps)",
-      "MBC-LS-GDNA-250: SciPhi™ Genomic DNA Purification Kit (250 Preps)"
+      "MBC-LS-GDNA-050: Genomic DNA Purification Kit (50 Preps)",
+      "MBC-LS-GDNA-250: Genomic DNA Purification Kit (250 Preps)"
     ],
     safetyInfo: [
       "Lysis Buffer L1 contains guanidine hydrochloride, which is harmful if swallowed or in contact with skin. Wear standard protective gloves and eyewear.",
@@ -355,31 +355,31 @@ const mdlsProductsData: MDLSProduct[] = [
   },
   {
     ...purificationKitsTemplate,
-    name: "SciPhi™ RNA Purification Kit",
+    name: "RNA Purification Kit",
     slug: "sciphi-rna-purification-kit",
     description: "Rapid silica membrane extraction kit optimized for the isolation of highly pure total RNA free of proteins and genomic DNA contamination.",
   },
   {
     ...purificationKitsTemplate,
-    name: "SciPhi™ Plasmid Miniprep Kit",
+    name: "Plasmid Miniprep Kit",
     slug: "sciphi-plasmid-miniprep-kit",
     description: "Reliable plasmid purification system yielding transfection-grade plasmid DNA from bacterial lysates in a convenient spin-column format.",
   },
   {
     ...purificationKitsTemplate,
-    name: "SciPhi™ Gel Extraction Kit",
+    name: "Gel Extraction Kit",
     slug: "sciphi-gel-extraction-kit",
     description: "Efficient DNA recovery system for extracting DNA fragments from agarose gel slices with high elution concentration and recovery rates.",
   },
   {
     ...purificationKitsTemplate,
-    name: "SciPhi™ PCR Purification Kit",
+    name: "PCR Purification Kit",
     slug: "sciphi-pcr-purification-kit",
     description: "Rapid cleanup kit designed to remove primers, nucleotides, enzymes, and salts from completed PCR amplification reactions.",
   },
   {
     ...purificationKitsTemplate,
-    name: "SciPhi™ Gel Extraction and PCR Purification Combo Kit",
+    name: "Gel Extraction and PCR Purification Combo Kit",
     slug: "sciphi-gel-extraction-and-pcr-purification-combo-kit",
     description: "Versatile, dual-purpose purification kit offering reagents and columns to perform both gel extraction and PCR amplification cleanup.",
   },
@@ -389,25 +389,25 @@ const mdlsProductsData: MDLSProduct[] = [
   // ----------------------------------------------------
   {
     ...laddersTemplate,
-    name: "SciPhi™ 1 kb DNA Ladder – Ready to Use",
+    name: "1 kb DNA Ladder – Ready to Use",
     slug: "sciphi-1-kb-dna-ladder-ready-to-use",
     description: "Pre-mixed, ready-to-load DNA molecular weight marker containing 13 fragments ranging from 250 bp to 10,000 bp with bright reference bands.",
   },
   {
     ...laddersTemplate,
-    name: "SciPhi™ 100 bp DNA Ladder – Ready to Use",
+    name: "100 bp DNA Ladder – Ready to Use",
     slug: "sciphi-100-bp-dna-ladder-ready-to-use",
     description: "Convenient DNA sizing ladder covering the 100 bp to 1,500 bp range, optimized for analyzing PCR products and smaller fragments.",
   },
   {
     ...laddersTemplate,
-    name: "SciPhi™ 50 bp DNA Ladder – Ready to Use",
+    name: "50 bp DNA Ladder – Ready to Use",
     slug: "sciphi-50-bp-dna-ladder-ready-to-use",
     description: "High-resolution DNA ladder for the sizing of very small DNA fragments, ranging from 50 bp to 500 bp, ideal for short amplicon verification.",
   },
   {
     ...laddersTemplate,
-    name: "SciPhi™ Prestained Protein Ladder – Broad Range",
+    name: "Prestained Protein Ladder – Broad Range",
     slug: "sciphi-prestained-protein-ladder-broad-range",
     description: "Prestained multi-color protein ladder containing 10 recombinant proteins from 10 kDa to 180 kDa, suitable for Western blot and SDS-PAGE analysis.",
     specs: {
@@ -423,13 +423,13 @@ const mdlsProductsData: MDLSProduct[] = [
   // ----------------------------------------------------
   {
     ...pcrMixesTemplate,
-    name: "SciPhi™ PCR Master Mix (2x)",
+    name: "PCR Master Mix (2x)",
     slug: "sciphi-pcr-master-mix-2x",
     description: "Ready-to-use 2x master mix containing Taq DNA Polymerase, dNTPs, reaction buffers, and magnesium ions for routine PCR amplification.",
   },
   {
     ...pcrMixesTemplate,
-    name: "SciPhi™ qPCR Master Mix (2x)",
+    name: "qPCR Master Mix (2x)",
     slug: "sciphi-qpcr-master-mix-2x",
     description: "High-performance qPCR master mix containing a green dye for real-time quantitative PCR applications on open-system thermal cyclers.",
     specs: {
@@ -440,7 +440,7 @@ const mdlsProductsData: MDLSProduct[] = [
   },
   {
     ...pcrMixesTemplate,
-    name: "SciPhi™ Coloured PCR Master Mix (2x)",
+    name: "Coloured PCR Master Mix (2x)",
     slug: "sciphi-coloured-pcr-master-mix-2x",
     description: "Convenient 2x PCR master mix pre-mixed with an inert tracking dye, allowing direct gel loading of PCR products without adding loading buffer.",
   },
@@ -450,13 +450,13 @@ const mdlsProductsData: MDLSProduct[] = [
   // ----------------------------------------------------
   {
     ...polymerasesTemplate,
-    name: "SciPhi™ High Fidelity DNA Polymerase (2U/µl)",
+    name: "High Fidelity DNA Polymerase (2U/µl)",
     slug: "sciphi-high-fidelity-dna-polymerase-2u-l",
     description: "Engineered DNA polymerase with superior proofreading capability, delivering maximum accuracy and high yields for critical cloning applications.",
   },
   {
     ...polymerasesTemplate,
-    name: "SciPhi™ Hot Start DNA Polymerase (5U/µl)",
+    name: "Hot Start DNA Polymerase (5U/µl)",
     slug: "sciphi-hot-start-dna-polymerase-5u-l",
     description: "Antibody-mediated hot-start Taq polymerase that remains inactive at room temperature, eliminating non-specific amplification and primer-dimers.",
   },
@@ -466,25 +466,25 @@ const mdlsProductsData: MDLSProduct[] = [
   // ----------------------------------------------------
   {
     ...rnaWorkflowTemplate,
-    name: "SciPhi™ RNA Isolation Reagent",
+    name: "RNA Isolation Reagent",
     slug: "sciphi-rna-isolation-reagent",
     description: "A complete, monophasic solution of phenol and guanidine isothiocyanate designed for the isolation of high-quality total RNA from cells and tissue.",
   },
   {
     ...rnaWorkflowTemplate,
-    name: "SciPhi™ First Strand cDNA Synthesis Kit",
+    name: "First Strand cDNA Synthesis Kit",
     slug: "sciphi-first-strand-cdna-synthesis-kit",
     description: "Comprehensive kit containing all essential components, primers, and enzymes for highly efficient first-strand cDNA synthesis from RNA templates.",
   },
   {
     ...rnaWorkflowTemplate,
-    name: "SciPhi™ Reverse Transcription cDNA Synthesis Kit",
+    name: "Reverse Transcription cDNA Synthesis Kit",
     slug: "sciphi-reverse-transcription-cdna-synthesis-kit",
     description: "Optimized reverse transcription kit featuring a simplified protocol to convert RNA into cDNA, ideal for routine gene expression profiling.",
   },
   {
     ...rnaWorkflowTemplate,
-    name: "SciPhi™ M-MuLV Reverse Transcriptase",
+    name: "M-MuLV Reverse Transcriptase",
     slug: "sciphi-m-mulv-reverse-transcriptase",
     description: "Purified recombinant Moloney Murine Leukemia Virus Reverse Transcriptase with lower RNase H activity, optimized for cDNA synthesis.",
   },
@@ -494,25 +494,25 @@ const mdlsProductsData: MDLSProduct[] = [
   // ----------------------------------------------------
   {
     ...platesSealersTemplate,
-    name: "SciPhi™ 96-Well PCR Strip Plate (Clear, White)",
+    name: "96-Well PCR Strip Plate (Clear, White)",
     slug: "sciphi-96-well-pcr-strip-plate-clear-white",
     description: "Precision-molded 96-well plates designed to combine the flexibility of strip tubes with the rigid format of standard plates.",
   },
   {
     ...platesSealersTemplate,
-    name: "SciPhi™ Optical 96-Well Reaction Plate (0.1 ml)",
+    name: "Optical 96-Well Reaction Plate (0.1 ml)",
     slug: "sciphi-optical-96-well-reaction-plate-01-ml",
     description: "Low-profile 96-well reaction plate optimized for fast thermal cycling and small sample volume real-time PCR applications.",
   },
   {
     ...platesSealersTemplate,
-    name: "SciPhi™ Optical 96-Well Reaction Plate (0.2 ml)",
+    name: "Optical 96-Well Reaction Plate (0.2 ml)",
     slug: "sciphi-optical-96-well-reaction-plate-02-ml",
     description: "Standard-profile 96-well PCR reaction plate designed for universal thermal cycler block compatibility and optimal heat transfer.",
   },
   {
     ...platesSealersTemplate,
-    name: "SciPhi™ Optical Adhesive Film",
+    name: "Optical Adhesive Film",
     slug: "sciphi-optical-adhesive-film",
     description: "High-transparency pressure-sensitive adhesive film designed specifically to seal PCR plates during quantitative real-time PCR runs.",
   },
@@ -806,5 +806,5 @@ const mdlsProductsData: MDLSProduct[] = [
 
 export const mdlsProducts: MDLSProduct[] = mdlsProductsData.map((product) => ({
   ...product,
-  image: resolveCatalogImagePath(product.slug),
+  image: resolveCatalogImageUrl(product.slug),
 }));

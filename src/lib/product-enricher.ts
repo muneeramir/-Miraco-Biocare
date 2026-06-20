@@ -6,7 +6,6 @@ import { type Product } from "@/data/products";
 function getShortName(product: Product): string {
   return product.slug
     .toUpperCase()
-    .replace(/SciPhi™/g, "")
     .replace(/™/g, "")
     .replace(/[^A-Z0-9]/g, "")
     .substring(0, 8);

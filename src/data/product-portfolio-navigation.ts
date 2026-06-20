@@ -81,7 +81,7 @@ function multiplexNavProducts(): PortfolioNavLink[] {
 export const productPortfolioNavigation: ProductPortfolioNavSection = {
   title: "Molecular Diagnostics & Life Sciences",
   href: MDLS_CATALOG_HREF,
-  description: "SciPhi reagents, kits, and molecular diagnostic assays.",
+  description: "Life sciences reagents, kits, and molecular diagnostic assays.",
   categories: [
     {
       id: "life-sciences",

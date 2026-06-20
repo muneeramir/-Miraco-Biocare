@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ThemeScript } from "@/components/shared/ThemeScript";
 import { defaultMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <body className="flex min-h-full flex-col font-sans">
-        <Script src="/theme-prevent-flash.js" strategy="beforeInteractive" />
+        <ThemeScript />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

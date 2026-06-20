@@ -353,7 +353,11 @@ function normalizeSearchText(product: MDLSProduct): string {
 }
 
 export function formatDisplayName(name: string): string {
-  return name.replace(/™/g, "").replace(/\s+/g, " ").trim();
+  return name
+    .replace(/™/g, "")
+    .replace(/^SciPhi\s*/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 export function resolveCategoryLabel(product: MDLSProduct): string {
@@ -386,7 +390,7 @@ export function resolveIllustration(product: MDLSProduct): string {
     return "clinical molecular diagnostic assay graphic with probe-based target detection in blue and cyan line art";
   }
 
-  return "SciPhi life-sciences product icon with DNA helix and molecular workflow motif in blue and cyan line art";
+  return "life-sciences product icon with DNA helix and molecular workflow motif in blue and cyan line art";
 }
 
 export function buildCatalogConfigFromProduct(
@@ -396,7 +400,7 @@ export function buildCatalogConfigFromProduct(
 
   return {
     slug: product.slug,
-    name: displayName.startsWith("SciPhi") ? displayName : `SciPhi ${displayName}`,
+    name: displayName,
     categoryLabel: resolveCategoryLabel(product),
     illustration: resolveIllustration(product),
     filename: `${product.slug}.png`,

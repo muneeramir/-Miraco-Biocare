@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Info, FileText } from "lucide-react";
 import SafeImage from "@/components/shared/SafeImage";
 import { type Product } from "@/data/products";
+import { getProductDetailHref } from "@/lib/product-utils";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -14,11 +15,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  // Determine the product URL based on if it's a new MDLS product or old general product
-  const detailUrl =
-    product.divisionSlug && product.categorySlug
-      ? `/products/${product.divisionSlug}/${product.categorySlug}/${product.slug}`
-      : `/products/${product.slug}`;
+  const detailUrl = getProductDetailHref(product);
 
   const enquireUrl = `/request-quotation?product=${product.slug}`;
 
@@ -71,19 +68,23 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Application Tags */}
         {displayTags.length > 0 && (
           <div className="mb-5">
-            <span className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-1.5">
+            <span className="mb-2 block text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
               Applications
             </span>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-col gap-2">
               {displayTags.map((tag) => (
-                <Badge
+                <div
                   key={tag}
-                  variant="outline"
-                  className="text-[11px] py-0 px-2 font-normal text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 max-w-[150px] truncate"
-                  title={tag}
+                  className="flex min-h-[2.75rem] items-start gap-2.5 rounded-lg border border-slate-200/80 bg-slate-50/50 px-3 py-2.5 dark:border-slate-800 dark:bg-slate-900/40"
                 >
-                  {tag}
-                </Badge>
+                  <span
+                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary"
+                    aria-hidden
+                  />
+                  <span className="min-w-0 flex-1 text-[11px] font-medium leading-snug text-slate-600 break-words dark:text-slate-300">
+                    {tag}
+                  </span>
+                </div>
               ))}
             </div>
           </div>

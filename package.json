@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "generate:product-prompts": "npx tsx scripts/generate-product-image-prompts.ts",
+    "generate:product-images": "npx tsx scripts/generate-product-images.ts",
+    "sync:product-images": "npx tsx scripts/sync-product-images-from-assets.ts",
+    "copy:catalog-images": "npx tsx scripts/copy-all-catalog-images.ts",
+    "verify:product-images": "npx tsx scripts/verify-product-images.ts",
     "list:missing-product-images": "npx tsx scripts/list-missing-product-images.ts"
   },
   "dependencies": {

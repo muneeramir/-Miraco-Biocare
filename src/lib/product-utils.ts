@@ -26,6 +26,17 @@ export function getMDLSProductBySlug(
 }
 
 /**
+ * Canonical detail URL for catalog (MDLS) products.
+ */
+export function getProductDetailHref(product: Product): string {
+  if (product.divisionSlug && product.categorySlug) {
+    return `/products/${product.divisionSlug}/${product.categorySlug}/${product.slug}`;
+  }
+
+  return `/products/${product.slug}`;
+}
+
+/**
  * Gets related products in the same category, excluding the current product.
  * Returns up to 4 products.
  */
