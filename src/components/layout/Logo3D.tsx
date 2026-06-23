@@ -216,9 +216,7 @@ export function Logo3D({ scrolled }: Logo3DProps) {
               alt="Miraco Biocare Logo"
               width={180}
               height={60}
-              className={`w-auto object-contain logo-img transition-all duration-300 ${
-                scrolled ? "h-8 md:h-10" : "h-10 md:h-14"
-              }`}
+              className="w-auto object-contain logo-img h-8 md:h-12"
               priority
             />
 

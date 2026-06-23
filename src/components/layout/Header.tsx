@@ -29,7 +29,20 @@ export function Header() {
   const [searchResults, setSearchResults] = useState<Array<{ title: string; url: string; category: string }>>([]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sy = window.scrollY;
+          setScrolled((prev) => {
+            // Hysteresis buffer: trigger shrink at > 80px, return at < 20px
+            return prev ? sy > 20 : sy > 80;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
